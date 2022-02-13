@@ -1,7 +1,7 @@
 @tool
 extends EditorPlugin
 
-const FsmEditor := preload("./scenes/fsm-editor.tscn")
+const FsmEditor := preload("./scenes/editor.tscn")
 
 var editor: Control
 
