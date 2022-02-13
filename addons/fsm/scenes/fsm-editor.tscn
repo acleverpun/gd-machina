@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://dh00whge5xncp"]
+
+[ext_resource type="Script" path="res://addons/fsm/src/fsm-editor.gd" id="1_aj6g5"]
+
+[node name="editor" type="GraphEdit"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_min_size = Vector2(0, 200)
+script = ExtResource( "1_aj6g5" )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="contextMenu" type="PopupMenu" parent="."]
+item_count = 1
+item_0/text = "Add state"
+item_0/id = 0

@@ -8,9 +8,20 @@
 
 config_version=5
 
+_global_script_classes=[{
+"base": &"Node",
+"class": &"Fsm",
+"language": &"GDScript",
+"path": "res://addons/fsm/fsm.gd"
+}]
+_global_script_class_icons={
+"Fsm": ""
+}
+
 [application]
 
 config/name="gd-fsm"
+run/main_scene="res://addons/fsm/scenes/fsm-editor.tscn"
 config/icon="res://assets/icons/icon.png"
 config/features=PackedStringArray("4.0", "Vulkan Clustered")
 
