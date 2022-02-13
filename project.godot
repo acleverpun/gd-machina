@@ -11,5 +11,18 @@ config_version=5
 [application]
 
 config/name="gd-fsm"
-config/icon="res://icon.png"
+config/icon="res://assets/icons/icon.png"
 config/features=PackedStringArray("4.0", "Vulkan Clustered")
+
+[debug]
+
+gdscript/warnings/unused_parameter=false
+
+[display]
+
+window/size/resizable=false
+
+[editor]
+
+node_naming/name_num_separator=3
+node_naming/name_casing=1
