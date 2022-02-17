@@ -7,7 +7,37 @@ offset_right = 128.0
 offset_bottom = 64.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color(1, 1, 1, 1)
+slot/0/left_icon = null
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color(1, 1, 1, 1)
+slot/0/right_icon = null
 script = ExtResource( "1_x3mbl" )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="container" type="HBoxContainer" parent="."]
+offset_left = 18.0
+offset_top = 42.0
+offset_right = 110.0
+offset_bottom = 73.0
+
+[node name="edit" type="Button" parent="container"]
+offset_right = 37.0
+offset_bottom = 31.0
+toggle_mode = true
+text = "edit"
+
+[node name="text" type="LineEdit" parent="container"]
+visible = false
+offset_left = 41.0
+offset_right = 105.0
+offset_bottom = 31.0
+editable = false
+expand_to_text_length = true
+
+[connection signal="toggled" from="container/edit" to="." method="_on_edit_toggled"]
