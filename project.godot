@@ -13,9 +13,15 @@ _global_script_classes=[{
 "class": &"Fsm",
 "language": &"GDScript",
 "path": "res://addons/fsm/fsm.gd"
+}, {
+"base": &"GraphNode",
+"class": &"StateNode",
+"language": &"GDScript",
+"path": "res://addons/fsm/src/stateNode.gd"
 }]
 _global_script_class_icons={
-"Fsm": ""
+"Fsm": "",
+"StateNode": ""
 }
 
 [application]
@@ -41,6 +47,11 @@ window/size/resizable=false
 
 node_naming/name_num_separator=3
 node_naming/name_casing=1
+scene/scene_naming=0
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/fsm/plugin.cfg")
 
 [input]
 

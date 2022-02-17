@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://dl75sgxvmvp4c"]
+
+[ext_resource type="Script" path="res://addons/fsm/src/stateNode.gd" id="1_x3mbl"]
+
+[node name="stateNode" type="GraphNode"]
+offset_right = 128.0
+offset_bottom = 64.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource( "1_x3mbl" )
+__meta__ = {
+"_edit_use_anchors_": false
+}

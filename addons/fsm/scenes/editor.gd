@@ -1,11 +1,23 @@
-extends Control
+@tool
+extends GraphEdit
 
-@onready var context := $context as PopupMenu
+const StateNode = preload("../src/stateNode.tscn")
+
+var default: String
+
+@onready var menu := $menu as PopupMenu
 
 func _gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		match event.button_index:
 			MOUSE_BUTTON_RIGHT:
 				if event.pressed:
-					context.popup()
-					context.position = get_viewport().get_mouse_position()
+					menu.position = get_global_mouse_position()
+					menu.popup()
+
+func _on_context_index_pressed(index: int) -> void:
+	match index:
+		0:
+			var node = StateNode.instantiate()
+			node.position_offset = get_local_mouse_position()
+			add_child(node)
