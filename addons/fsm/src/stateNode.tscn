@@ -41,3 +41,4 @@ editable = false
 expand_to_text_length = true
 
 [connection signal="toggled" from="container/edit" to="." method="_on_edit_toggled"]
+[connection signal="text_submitted" from="container/text" to="." method="_on_text_text_submitted"]
