@@ -13,15 +13,9 @@ _global_script_classes=[{
 "class": &"Fsm",
 "language": &"GDScript",
 "path": "res://addons/fsm/fsm.gd"
-}, {
-"base": &"GraphNode",
-"class": &"StateNode",
-"language": &"GDScript",
-"path": "res://addons/fsm/src/stateNode.gd"
 }]
 _global_script_class_icons={
-"Fsm": "",
-"StateNode": ""
+"Fsm": ""
 }
 
 [application]
