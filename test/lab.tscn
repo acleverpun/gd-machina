@@ -6,4 +6,4 @@
 
 [node name="fsm" type="Node" parent="."]
 script = ExtResource( "1_nq5jr" )
-stateList = ["a", "b"]
+keys = ["foo", "bar"]

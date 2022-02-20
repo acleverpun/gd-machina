@@ -1,16 +1,30 @@
+@tool
 class_name Fsm extends Node
 
-@export var stateList: Array[String] = [ "default" ]
+@export var keys: Array[String] = [ "default" ]
 
 var states := {}
 var state := 0
 
 var stateName: String:
-	get: 
-		return stateList[state]
+	get:
+		return keys[state]
 	set(value):
 		state = states[value]
 
 func _ready() -> void:
-	for s in range(stateList.size()):
-		states[stateList[s]] = s
+	for k in range(keys.size()):
+		states[keys[k]] = k
+
+func add(value: String) -> void:
+	keys.append(value)
+
+func remove(value: String) -> void:
+	var index := keys.find(value)
+	if index >= 0:
+		keys.remove_at(index)
+
+func update(value: String) -> void:
+	var index := keys.find(value)
+	if index >= 0:
+		keys.remove_at(index)

@@ -4,13 +4,16 @@ extends GraphEdit
 const StateNode = preload("../src/stateNode.tscn")
 
 var default: String
+var fsm: Fsm
 var offset := Vector2(0, 32)
 
 @onready var menu := $menu as PopupMenu
 
-func setup(fsm: Fsm) -> void:
+func setup(_fsm: Fsm) -> void:
+	fsm = _fsm
 	var node: GraphNode
-	for state in fsm.stateList:
+
+	for state in fsm.keys:
 		node = addNode(state)
 		node.position_offset = offset
 		offset.x += 200
