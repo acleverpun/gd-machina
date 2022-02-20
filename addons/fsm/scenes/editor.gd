@@ -4,12 +4,12 @@ extends GraphEdit
 const StateNode = preload("../src/stateNode.tscn")
 
 var default: String
-var fsm: Fsm
+var fsm: FiniteStateMachine
 var offset := Vector2(0, 32)
 
 @onready var menu := $menu as PopupMenu
 
-func setup(_fsm: Fsm) -> void:
+func setup(_fsm: FiniteStateMachine) -> void:
 	fsm = _fsm
 	var node: GraphNode
 

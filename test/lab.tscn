@@ -1,9 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://cy78emnyff51g"]
+[gd_scene load_steps=2 format=3 uid="uid://log8e0y8r3vp"]
 
-[ext_resource type="Script" path="res://addons/fsm/fsm.gd" id="1_nq5jr"]
+[ext_resource type="Script" path="res://addons/fsm/src/fsm.gd" id="1_chlxl"]
 
 [node name="node" type="Node"]
 
 [node name="fsm" type="Node" parent="."]
-script = ExtResource( "1_nq5jr" )
-keys = ["foo", "bar"]
+script = ExtResource( "1_chlxl" )
+keys = ["aoeu"]

@@ -1,7 +1,7 @@
 @tool
-class_name Fsm extends Node
+class_name FiniteStateMachine extends Node
 
-@export var keys: Array[String] = [ "default" ]
+@export var keys: Array[String] = []
 
 var states := {}
 var state := 0

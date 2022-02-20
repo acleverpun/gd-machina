@@ -10,12 +10,12 @@ config_version=5
 
 _global_script_classes=[{
 "base": &"Node",
-"class": &"Fsm",
+"class": &"FiniteStateMachine",
 "language": &"GDScript",
-"path": "res://addons/fsm/fsm.gd"
+"path": "res://addons/fsm/src/fsm.gd"
 }]
 _global_script_class_icons={
-"Fsm": ""
+"FiniteStateMachine": ""
 }
 
 [application]

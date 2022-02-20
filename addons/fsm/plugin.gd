@@ -1,6 +1,8 @@
 @tool
 extends EditorPlugin
 
+const NodeName := "FiniteStateMachine"
+
 const FsmEditor := preload("./scenes/editor.tscn")
 
 var editor: GraphEdit
@@ -17,7 +19,7 @@ func _exit_tree() -> void:
 		remove_control_from_bottom_panel(editor)
 		editor.queue_free()
 
-func toggle(visible: bool, fsm: Fsm) -> void:
+func toggle(visible: bool, fsm: FiniteStateMachine) -> void:
 	if visible:
 		editor = FsmEditor.instantiate()
 		editor.setup(fsm)
@@ -30,7 +32,7 @@ func toggle(visible: bool, fsm: Fsm) -> void:
 
 func _on_selection_changed() -> void:
 	var nodes = selection.get_selected_nodes()
-	var isFsm := not nodes.is_empty() and nodes[0] is Fsm
-	var fsm: Fsm = nodes[0] if isFsm else null
+	var isFsm := not nodes.is_empty() and nodes[0] is FiniteStateMachine
+	var fsm: FiniteStateMachine = nodes[0] if isFsm else null
 
 	toggle(isFsm, fsm)
