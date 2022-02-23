@@ -1,30 +1,32 @@
 @tool
 class_name Machina extends Node
 
-@export var keys: Array[String] = []
-
-var states := {}
-var state := 0
-
-var stateName: String:
-	get:
-		return keys[state]
-	set(value):
-		state = states[value]
+var default: String
+var state: String
 
 func _ready() -> void:
-	for k in range(keys.size()):
-		states[keys[k]] = k
+	state = default
 
-func add(value: String) -> void:
-	keys.append(value)
-
-func remove(value: String) -> void:
-	var index := keys.find(value)
-	if index >= 0:
-		keys.remove_at(index)
-
-func update(value: String) -> void:
-	var index := keys.find(value)
-	if index >= 0:
-		keys.remove_at(index)
+func _get_property_list() -> Array:
+	var states = get_children().map(func(child): return child.name)
+	return [
+		{
+			name = "main",
+			type = TYPE_NIL,
+			usage = PROPERTY_USAGE_CATEGORY,
+		},
+		{
+			name = "default",
+			type = TYPE_STRING,
+			usage = PROPERTY_USAGE_DEFAULT | PROPERTY_USAGE_SCRIPT_VARIABLE,
+			hint = PROPERTY_HINT_ENUM,
+			hint_string = ",".join(states),
+		},
+		{
+			name = "state",
+			type = TYPE_STRING,
+			usage = PROPERTY_USAGE_DEFAULT | PROPERTY_USAGE_SCRIPT_VARIABLE,
+			hint = PROPERTY_HINT_ENUM,
+			hint_string = ",".join(states),
+		},
+	]
