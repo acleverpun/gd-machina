@@ -10,18 +10,19 @@ config_version=5
 
 _global_script_classes=[{
 "base": &"Node",
-"class": &"FiniteStateMachine",
+"class": &"Machina",
 "language": &"GDScript",
-"path": "res://addons/fsm/src/fsm.gd"
+"path": "res://addons/machina/src/machina.gd"
 }]
 _global_script_class_icons={
-"FiniteStateMachine": ""
+"Machina": ""
 }
 
 [application]
 
-config/name="gd-fsm"
-run/main_scene="res://addons/fsm/scenes/editor.tscn"
+config/name="gd-machina"
+config/description="Godot state machines and editors."
+run/main_scene="res://addons/machina/scenes/editor.tscn"
 config/icon="res://assets/icons/icon.png"
 config/features=PackedStringArray("4.0", "Vulkan Clustered")
 
@@ -45,7 +46,7 @@ scene/scene_naming=0
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/fsm/plugin.cfg")
+enabled=PackedStringArray("res://addons/machina/plugin.cfg")
 
 [input]
 

@@ -1,5 +1,5 @@
 @tool
-class_name FiniteStateMachine extends Node
+class_name Machina extends Node
 
 @export var keys: Array[String] = []
 

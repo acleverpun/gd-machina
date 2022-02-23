@@ -1,9 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://log8e0y8r3vp"]
+[gd_scene load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://addons/fsm/src/fsm.gd" id="1_chlxl"]
+[ext_resource type="Script" path="res://addons/machina/src/machina.gd" id="1_chlxl"]
 
 [node name="node" type="Node"]
 
-[node name="fsm" type="Node" parent="."]
+[node name="machina" type="Node" parent="."]
 script = ExtResource( "1_chlxl" )
 keys = ["aoeu"]
