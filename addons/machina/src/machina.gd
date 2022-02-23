@@ -4,8 +4,13 @@ class_name Machina extends Node
 var default: String
 var state: String
 
+var states := {}
+
 func _ready() -> void:
 	state = default
+
+	for node in get_children():
+		states[node.name] = node
 
 func _get_property_list() -> Array:
 	var states = get_children().map(func(child): return child.name)

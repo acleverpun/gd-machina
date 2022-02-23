@@ -13,7 +13,7 @@ func setup(machina: Machina) -> void:
 	sm = machina
 	var node: GraphNode
 
-	for state in sm.keys:
+	for state in sm.states:
 		node = addNode(state)
 		node.position_offset = offset
 		offset.x += 200
