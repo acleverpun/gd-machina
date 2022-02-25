@@ -22,7 +22,7 @@ _global_script_class_icons={
 
 config/name="gd-machina"
 config/description="Godot state machines and editors."
-run/main_scene="res://addons/machina/scenes/editor.tscn"
+run/main_scene="res://test/lab.tscn"
 config/icon="res://assets/icons/icon.png"
 config/features=PackedStringArray("4.0", "Vulkan Clustered")
 

@@ -1,16 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://cno88rtukmh0l"]
+[gd_scene load_steps=3 format=3 uid="uid://cno88rtukmh0l"]
 
-[ext_resource type="Script" path="res://addons/machina/src/machina.gd" id="1_rgi1n"]
+[ext_resource type="Script" path="res://test/lab.gd" id="1_4bn1e"]
+[ext_resource type="Script" path="res://addons/machina/src/machina.gd" id="2_bhu85"]
 
-[node name="node" type="Node"]
+[node name="lab" type="Node"]
+script = ExtResource( "1_4bn1e" )
 
 [node name="machina" type="Node" parent="."]
-script = ExtResource( "1_rgi1n" )
-default = "bar4"
-state = "node"
+script = ExtResource( "2_bhu85" )
+default = ""
+state = ""
 
-[node name="foo" type="Node" parent="machina"]
+[node name="food" type="Node" parent="machina"]
 
-[node name="bar4" type="Node" parent="machina"]
-
-[node name="node" type="Node" parent="machina"]
+[node name="bard" type="Node" parent="machina"]

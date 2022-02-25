@@ -7,11 +7,21 @@ var state: String
 var states := {}
 
 func _ready() -> void:
-	state = default
+	var children := get_children()
 
-	for node in get_children():
+	# populate states
+	for node in children:
 		states[node.name] = node
 
+	# set default if unset
+	if default == "" and children.size() > 0:
+		default = children[0].name
+
+	# set initial state if unset
+	if state == "":
+		state = default
+
+# make exported variables use actual states
 func _get_property_list() -> Array:
 	var states = get_children().map(func(child): return child.name)
 	return [
@@ -35,3 +45,9 @@ func _get_property_list() -> Array:
 			hint_string = ",".join(states),
 		},
 	]
+
+# proxy states to instance
+func _get(property: StringName):
+	if states.has(property):
+		return states[property]
+	return null
