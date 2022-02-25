@@ -27,7 +27,7 @@ func setup(machina: Machina) -> void:
 func addNode(value: String = "") -> GraphNode:
 	var stateNode = StateNode.instantiate()
 	add_child(stateNode)
-	stateNode.save(value)
+	stateNode.reset(value)
 	stateNode.saved.connect(_on_stateNode_saved.bind(stateNode))
 	return stateNode
 
@@ -38,5 +38,6 @@ func _on_context_index_pressed(index: int) -> void:
 			stateNode.position_offset = get_local_mouse_position()
 			stateNode.text.grab_focus()
 
-func _on_stateNode_saved(stateNode: GraphNode) -> void:
-	prints("saved", stateNode)
+func _on_stateNode_saved(value: String, stateNode: GraphNode) -> void:
+	sm.add(value)
+	stateNode.reset(value)

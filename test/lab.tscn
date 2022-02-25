@@ -8,8 +8,8 @@ script = ExtResource( "1_4bn1e" )
 
 [node name="machina" type="Node" parent="."]
 script = ExtResource( "2_bhu85" )
-default = ""
-state = ""
+default = "food"
+state = "food"
 
 [node name="food" type="Node" parent="machina"]
 

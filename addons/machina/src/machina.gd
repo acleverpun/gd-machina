@@ -47,7 +47,21 @@ func _get_property_list() -> Array:
 	]
 
 # proxy states to instance
-func _get(property: StringName):
+func _get(property: String):
 	if states.has(property):
 		return states[property]
 	return null
+
+func add(state: String) -> void:
+	var node := Node.new()
+	node.name = state
+	add_child(node)
+	node.owner = get_tree().get_edited_scene_root()
+	states[state] = node
+	notify_property_list_changed()
+
+func remove() -> void:
+	pass
+
+func change() -> void:
+	pass
