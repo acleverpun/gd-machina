@@ -44,7 +44,13 @@ func _on_context_index_pressed(index: int) -> void:
 			stateNode.text.grab_focus()
 
 func _on_stateNode_saved(value: String, stateNode: GraphNode) -> void:
-	sm.add(value)
+	var state := stateNode.title
+
+	if state == "":
+		sm.add(value)
+	else:
+		sm.rename(state, value)
+
 	stateNode.reset(value)
 
 func _on_stateNode_close_request(stateNode: GraphNode) -> void:

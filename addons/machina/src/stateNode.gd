@@ -3,7 +3,6 @@ extends GraphNode
 
 signal saved(value: String)
 
-var index: int
 var text: LineEdit
 
 func reset(value: String) -> void:

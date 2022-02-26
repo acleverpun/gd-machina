@@ -47,12 +47,12 @@ func _get_property_list() -> Array:
 	]
 
 # proxy states to instance
-func _get(property: String):
+func _get(property: StringName):
 	if states.has(property):
 		return states[property]
 	return null
 
-func add(state: String) -> void:
+func add(state: StringName) -> void:
 	var node := Node.new()
 	node.name = state
 	add_child(node)
@@ -60,10 +60,18 @@ func add(state: String) -> void:
 	states[state] = node
 	notify_property_list_changed()
 
-func remove(state: String) -> void:
+func remove(state: StringName) -> void:
 	var node: Node = states[state]
 	node.queue_free()
 	states.erase(state)
+	notify_property_list_changed()
 
-func change() -> void:
+func rename(state: StringName, newName: StringName) -> void:
+	var node: Node = states[state]
+	node.name = newName
+	states.erase(state)
+	states[newName] = node
+	notify_property_list_changed()
+
+func change(state: StringName) -> void:
 	pass
