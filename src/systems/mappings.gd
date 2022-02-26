@@ -1,7 +1,7 @@
 extends Node
 
 func _ready() -> void:
-	prints("System ready:", self.name)
+	prints("system.ready:", self.name)
 
 func _unhandled_key_input(event: InputEvent) -> void:
 	if not event.is_action_type(): return

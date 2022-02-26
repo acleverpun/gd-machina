@@ -1,10 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://cno88rtukmh0l"]
+[gd_scene load_steps=4 format=3 uid="uid://cno88rtukmh0l"]
 
 [ext_resource type="Script" path="res://test/lab.gd" id="1_4bn1e"]
 [ext_resource type="Script" path="res://addons/machina/src/machina.gd" id="2_bhu85"]
+[ext_resource type="PackedScene" uid="uid://d4ftu3upm18wr" path="res://addons/machina/scenes/editor.tscn" id="3_0ho4h"]
 
 [node name="lab" type="Node"]
 script = ExtResource( "1_4bn1e" )
+
+[node name="editor" parent="." instance=ExtResource( "3_0ho4h" )]
+smPath = NodePath("../machina")
 
 [node name="machina" type="Node" parent="."]
 script = ExtResource( "2_bhu85" )

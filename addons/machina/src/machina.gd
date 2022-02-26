@@ -60,8 +60,10 @@ func add(state: String) -> void:
 	states[state] = node
 	notify_property_list_changed()
 
-func remove() -> void:
-	pass
+func remove(state: String) -> void:
+	var node: Node = states[state]
+	node.queue_free()
+	states.erase(state)
 
 func change() -> void:
 	pass

@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3]
+[gd_scene load_steps=2 format=3 uid="uid://bcnc5ku8fvli1"]
 
 [ext_resource type="Script" path="res://addons/machina/src/stateNode.gd" id="1_x3mbl"]
 
@@ -7,6 +7,7 @@ offset_right = 128.0
 offset_bottom = 64.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+show_close = true
 slot/0/left_enabled = false
 slot/0/left_type = 0
 slot/0/left_color = Color(1, 1, 1, 1)
@@ -16,9 +17,6 @@ slot/0/right_type = 0
 slot/0/right_color = Color(1, 1, 1, 1)
 slot/0/right_icon = null
 script = ExtResource( "1_x3mbl" )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="container" type="HBoxContainer" parent="."]
 offset_left = 18.0

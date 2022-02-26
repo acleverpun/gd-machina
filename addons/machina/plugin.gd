@@ -22,7 +22,7 @@ func _exit_tree() -> void:
 func toggle(visible: bool, sm: Machina) -> void:
 	if visible:
 		editor = MachinaEditor.instantiate()
-		editor.setup(sm)
+		editor.smPath = sm.get_path()
 		add_control_to_bottom_panel(editor, "Machina")
 	else:
 		if editor != null:

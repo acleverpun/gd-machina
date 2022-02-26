@@ -1,13 +1,18 @@
 @tool
 extends GraphEdit
 
+@export_node_path(Node) var smPath
+
 const StateNode = preload("../src/stateNode.tscn")
 
-var default: String
-var sm: Machina
 var offset := Vector2(0, 32)
 
 @onready var menu := $menu as PopupMenu
+@onready var sm := get_node(smPath) as Machina
+
+func _ready() -> void:
+	sm.ready.connect(setup)
+	setup()
 
 func _gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
@@ -17,18 +22,18 @@ func _gui_input(event: InputEvent) -> void:
 					menu.position = get_global_mouse_position()
 					menu.popup()
 
-func setup(machina: Machina) -> void:
-	sm = machina
+func setup() -> void:
 	for state in sm.states:
 		var stateNode := addNode(state)
 		stateNode.position_offset = offset
 		offset.x += 200
 
 func addNode(value: String = "") -> GraphNode:
-	var stateNode = StateNode.instantiate()
+	var stateNode: GraphNode = StateNode.instantiate()
 	add_child(stateNode)
 	stateNode.reset(value)
 	stateNode.saved.connect(_on_stateNode_saved.bind(stateNode))
+	stateNode.close_request.connect(_on_stateNode_close_request.bind(stateNode))
 	return stateNode
 
 func _on_context_index_pressed(index: int) -> void:
@@ -41,3 +46,7 @@ func _on_context_index_pressed(index: int) -> void:
 func _on_stateNode_saved(value: String, stateNode: GraphNode) -> void:
 	sm.add(value)
 	stateNode.reset(value)
+
+func _on_stateNode_close_request(stateNode: GraphNode) -> void:
+	sm.remove(stateNode.title)
+	stateNode.queue_free()
