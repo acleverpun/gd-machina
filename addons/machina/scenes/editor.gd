@@ -8,7 +8,7 @@ const StateNode = preload("../src/stateNode.tscn")
 var offset := Vector2(0, 32)
 
 @onready var menu := $menu as PopupMenu
-@onready var sm := get_node(smPath) as Machina
+@onready var sm: Machina = get_node(smPath) as Machina
 
 func _ready() -> void:
 	sm.ready.connect(setup)
