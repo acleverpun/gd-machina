@@ -1,6 +1,15 @@
 @tool
 class_name Machina extends Node
 
+## State was added.
+signal added(state: StringName)
+## State was removed.
+signal removed(state: StringName)
+## State was edited.
+signal edited(state: StringName, oldState: StringName)
+## Active state was changed.
+signal changed(state: StringName, oldState: StringName)
+
 var default: String
 var state: String
 
@@ -59,6 +68,7 @@ func add(key: StringName) -> void:
 	add_child(node)
 	node.owner = get_tree().get_edited_scene_root()
 	states[key] = node
+	added.emit(key)
 	notify_property_list_changed()
 
 ## Remove a state.
@@ -66,17 +76,21 @@ func remove(key: StringName) -> void:
 	var node: Node = states[key]
 	node.queue_free()
 	states.erase(key)
+	removed.emit(key)
 	notify_property_list_changed()
 
-## Rename a state.
-func rename(key: StringName, newKey: StringName) -> void:
+## Edit a state.
+func edit(key: StringName, newKey: StringName) -> void:
 	var node: Node = states[key]
 	node.name = newKey
 	states.erase(key)
 	states[newKey] = node
+	edited.emit(newKey, key)
 	notify_property_list_changed()
 
-## Change states.
+## Change active state.
 func change(key: StringName) -> void:
 	assert(key in states, "state not found")
+	var oldState := state
 	state = key
+	changed.emit(key, oldState)

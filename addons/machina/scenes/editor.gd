@@ -49,7 +49,7 @@ func _on_stateNode_saved(value: String, stateNode: GraphNode) -> void:
 	if state == "":
 		sm.add(value)
 	else:
-		sm.rename(state, value)
+		sm.edit(state, value)
 
 	stateNode.reset(value)
 
