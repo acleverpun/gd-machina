@@ -7,7 +7,8 @@ func _ready() -> void:
 
 	sm.changed.connect(_on_sm_changed)
 
-	sm.change(sm.bard)
+	sm.change(sm.states.bard)
+	sm.change(sm.FOOD)
 
 func _on_sm_changed(state: StringName, oldState: StringName) -> void:
-	prints("sm changed", state, oldState)
+	prints("state changed from %s to %s" % [ oldState, state ])
