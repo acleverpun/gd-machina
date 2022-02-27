@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://b04nuccl5uoei"]
+
+[ext_resource type="Script" path="res://src/scenes/lab.gd" id="1_s1cgs"]
+[ext_resource type="PackedScene" uid="uid://d4ftu3upm18wr" path="res://addons/machina/scenes/editor.tscn" id="2_6iq3k"]
+[ext_resource type="Script" path="res://addons/machina/src/machina.gd" id="3_b8kgw"]
+
+[node name="lab" type="Node"]
+script = ExtResource( "1_s1cgs" )
+
+[node name="editor" parent="." instance=ExtResource( "2_6iq3k" )]
+smPath = NodePath("../machina")
+
+[node name="machina" type="Node" parent="."]
+script = ExtResource( "3_b8kgw" )
+default = "food"
+state = "food"
+
+[node name="food" type="Node" parent="machina"]
+
+[node name="bard" type="Node" parent="machina"]
