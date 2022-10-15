@@ -5,13 +5,13 @@
 [ext_resource type="Script" path="res://addons/machina/src/machina.gd" id="3_b8kgw"]
 
 [node name="lab" type="Node"]
-script = ExtResource( "1_s1cgs" )
+script = ExtResource("1_s1cgs")
 
-[node name="editor" parent="." instance=ExtResource( "2_6iq3k" )]
+[node name="editor" parent="." instance=ExtResource("2_6iq3k")]
 smPath = NodePath("../machina")
 
 [node name="machina" type="Node" parent="."]
-script = ExtResource( "3_b8kgw" )
+script = ExtResource("3_b8kgw")
 default = "food"
 state = "food"
 
